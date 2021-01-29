@@ -1,0 +1,178 @@
+body{
+	font-family: 'Nunito', sans-serif;
+	/* Nunito
+		Extra-light 200
+		Light 300
+		Regular 400
+		Extra-bold 800
+		Black 900
+ 	*/
+	margin: 0;
+	padding: 0;
+}
+
+
+.color1 {color: #cf3721;} /*tomato*/
+.color2 {color: #31a9b8;} /*aqua blue*/
+.color3 {color: #f5be41;} /*yellow paper*/
+.color4 {color: #258039;} /*green*/
+
+
+.container{
+	width: 100%;
+	min-height: 100vh;
+	margin: 0 auto;
+	background-color: inherit;
+}
+/*header*/
+
+header{
+	width: 95vw;
+	height: 12vh;
+	background-color: #cf3721;
+	border-radius: 0 0 12vh 0 / 0 0 100% 0;
+	border-right: 5px solid #258039;
+	display: flex;
+	justify-content: space-between;
+}
+.logo{
+	/*margin-left: 1rem;*/
+	height: 100%;
+	min-height: inherit;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+.logo h2{
+	margin: 0;
+	padding: 0;
+	color: #f5be41;
+	background-color: #258039;
+	padding: 0 0.9rem 0 2rem;
+	border-right: 2px solid #f5be41;
+	font-weight: 800;
+}
+.toolbar{
+	min-height: inherit;
+	display: flex;
+	align-items: center;
+	color: #258039;
+	padding-right: 3rem;
+}
+div.settingButton, div.reportButton{
+	font-size: 200%;
+	cursor: pointer;
+}
+div.reportButton{
+	padding-left: 1em;
+	display: none;
+
+}
+/*header*/
+/* timer style */
+
+div.timerContainer{
+	margin: 0;
+	min-height: 75vh;
+	border-right: #258039 5px solid;
+	background-color: #cf3721;
+	border-radius: 0 calc(12vh + 5vw) 0vh 0 / 0 24vh 24vh 0;
+	user-select: none;
+}
+div.modeSwitcher{
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 3rem;
+	width: 70%;
+}
+div.switcher{
+	background-color: #bf3721;
+	color: #f5be41;
+	overflow: hidden;
+	padding: 0 0.9rem 0 2rem;
+	border-right: 2px solid ;
+	cursor: pointer;
+	font-size: 120%;
+	font-weight: 600;
+}
+.active{
+	background: #258039 !important;
+	width: 6rem !important;
+}
+div#timer{
+	display: flex;
+	min-height: 40vh;
+	align-items: center;
+}
+div#timer div{
+	font-size: 900%;
+	font-weight:  600;
+	color:  darkred;
+}
+div.startButton{
+	font-size: 200%;
+}
+div.taskNow{
+	margin: 2rem  0 0 0;
+	width: 45vw !important;
+	padding: 1rem 2rem;
+	position: relative;
+}
+.taskNowInfo{
+	position: absolute;
+	display: flex;
+	align-items: center;
+	right: 0;
+	top: 0;
+	height: 100%;
+	padding-right: 1rem;
+}
+@media screen and (max-width: 425px){
+	div.modeSwitcher{
+		width: 95%;
+	}
+	div.switcher{
+		border-top: solid 2px;
+	}
+	div.switcher:nth-child(3){
+		width: 100%;
+		border-bottom: solid 2px;
+	}
+	div#timer{
+		width: 0;
+		margin: 0;
+	}
+	div#timer div{
+		font-size: 600%;
+		font-weight:  600;
+		color:  darkred;
+	}
+	div.taskNow{
+		margin: 1rem  0 0 0;
+		border-bottom: solid 2px;
+	}
+}
+/* timer style */
+footer{
+	height: calc(13vh);
+	background-color: #cf3721;
+	border-right: #258039 5px solid;
+	border-radius: 0 0vh 80vh 6vh / 0 0vh 70vh 12vh;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: darkred;
+}
+footer::after{
+	content: "";
+	display: block;
+	height: 13vh;
+	width: calc(12vh + 5vw);
+	background-color: #cf3721;
+	position: absolute;
+	border-radius: 0 0vh 1vh 0 / 0 0vh 5vh 0;
+	right: -5px;
+	top: 0;
+	z-index: -1;
+}
