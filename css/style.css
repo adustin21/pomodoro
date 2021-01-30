@@ -86,7 +86,6 @@ div.modeSwitcher{
 	width: 70%;
 }
 div.switcher{
-	background-color: #bf3721;
 	color: #f5be41;
 	overflow: hidden;
 	padding: 0 0.9rem 0 2rem;
@@ -96,18 +95,18 @@ div.switcher{
 	font-weight: 600;
 }
 .active{
-	background: #258039 !important;
+	background: #258039;
 	width: 6rem !important;
 }
 div#timer{
 	display: flex;
 	min-height: 40vh;
 	align-items: center;
+	color:  darkred;
 }
 div#timer div{
 	font-size: 900%;
 	font-weight:  600;
-	color:  darkred;
 }
 div.startButton{
 	font-size: 200%;
