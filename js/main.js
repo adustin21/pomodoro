@@ -125,16 +125,7 @@ let		t_look = (task) => {
 		document.querySelector(".startButton").innerText = "stop";
 }
 
-let		getUrlVars = () => {
-	var vars = {};
-	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
-		vars[key] = value;
-	});
-	return vars;
-}
-
-
-let		startTime = () => {
+let		t_start = () => {
 	nowDate = Date.now();
 	if (STORE.nowTask == 0){
 		STORE.nowTask = new Task(2);
@@ -159,16 +150,39 @@ let		startTime = () => {
 		}
 	}
 	t_observer.broadcast((STORE.nowTask));
-	setTimeout(() => startTime(), 500);
+	setTimeout(() => t_start(), 500);
+}
+
+let		s_open = () => {
+	s_render();
+}
+
+let		s_render = () => {
+	let		setiingWindow = document.getElementById("settingWindow");
+	let		setiingButton= document.getElementById("settingButton");
+
+	settingWindow.style.display = settingWindow.style.display == "" ? "flex" : "";
+	settingButton.style.transform = settingWindow.style.transform == "" ? "" : "";
+}
+
+let		getUrlVars = () => {
+	var vars = {};
+	var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+		vars[key] = value;
+	});
+	return vars;
 }
 
 const	t_imer = document.getElementById("timer");
 const	t_min = document.getElementById("min");
 const	t_sec = document.getElementById("sec");
+const	s_etting = document.getElementById("settingButton");
 const	t_observer = new EventObserver;
 
 t_observer.subscribe(t_change);
 t_observer.subscribe(t_look);
 
 t_look(STORE.default);
+
+s_etting.addEventListener("click", s_open);
 

@@ -9,6 +9,7 @@ body{
  	*/
 	margin: 0;
 	padding: 0;
+	user-select: none;
 }
 
 
@@ -59,10 +60,44 @@ header{
 	color: #258039;
 	padding-right: 3rem;
 }
+/*setting*/
+div.settingContainer{
+	position: relative;
+	z-index: 5;
+}
 div.settingButton, div.reportButton{
 	font-size: 200%;
 	cursor: pointer;
+	position: relative;
+	z-index: 5;
+	transform: rotate(0deg);
+	transition-duration: 0.2s;
 }
+div#settingWindow{
+	display: none;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	width: 43rem;
+	max-width: 70vw;
+	height: 43rem;
+	max-height: 50vh;
+	position: absolute;
+	overflow: hidden;
+	background: #cf3721;
+	color: #f5be41;
+	font-size: 120%;
+	border: #258039 2px solid;
+	border-radius: 2rem 0 2rem 2rem;
+	/*box-shadow: -4px 1px 31px 0px rgba(0,0,0,0.75);
+	-webkit-box-shadow: -4px 1px 31px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: -4px 1px 31px 0px rgba(0,0,0,0.75);*/
+	right: 0.5rem;
+	top: 0.5rem;
+	z-index: 0;
+}
+/*setting*/
 div.reportButton{
 	padding-left: 1em;
 	display: none;
@@ -162,6 +197,7 @@ footer{
 	justify-content: center;
 	align-items: center;
 	color: darkred;
+	user-select: none;
 }
 footer::after{
 	content: "";
