@@ -1,0 +1,24 @@
+@use 'src/assets/sass/_mixins' as m
+@use 'src/assets/sass/_colors' as c
+.container
+	@include m.widthHeight(89%,89%)
+	background: c.$portGore
+	border-radius: 100%
+	color: c.$blue
+	h1
+		margin-bottom: 0em
+		margin-top: .3em
+	button
+		background: transparent
+		padding: 0
+		border: none
+		outline: none
+		cursor: pointer
+		h3
+			margin: 1em 0 0 0
+			color: c.$blue
+	@media screen and (max-width: 580px)
+		h1
+			font-size: 80px
+		h3
+			margin: 1em 0 0 1em

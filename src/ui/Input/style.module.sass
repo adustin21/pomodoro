@@ -1,0 +1,42 @@
+@use 'src/assets/sass/_colors' as c
+@use 'src/assets/sass/_mixins' as m
+.container
+	label
+		color: c.$portGore
+		opacity: 40%
+		font-size: 12px
+	.inputWrapper
+		background: c.$grey
+		display: flex
+		width: min-content
+		margin-top: .3em
+		border-radius: 10px
+		overflow: hidden
+		position: relative
+		input
+			appearance: textfield
+			width: 8.3em
+			background: transparent
+			outline: none
+			border: none
+			padding: 1.1em
+			font-family: inherit
+		.controllers
+			@include m.positionAbs(0,0,0,unset)
+			@include m.widthHeight(2em, 100%)
+			position: absolute
+			div
+				background-image: url(./images/arrow.svg)
+				width: 12px
+				height: 8.5px
+				background-size: contain
+				background-repeat: no-repeat
+				cursor: pointer
+				opacity: (30%)
+				&:hover
+					opacity: 100%
+			.up
+				margin-top: 1em
+			.down
+				transform: rotate(180deg)
+

@@ -1,0 +1,32 @@
+@use 'src/assets/sass/_mixins' as m
+@use 'src/assets/sass/_colors' as c
+.container
+	@include m.flexJA(space-between, center)
+	border: none
+	outline: none
+	padding: 1em 0 1.1em
+	border-bottom: solid 1px #E3E1E1
+	margin: 0
+	legend
+		float: left
+		width: calc(100% - 120px - 3.5em)
+	input
+		display: none
+		& + label
+			@include m.widthHeight(40px, 40px)
+			@include m.flexJA(center, center)
+			background: c.$grey
+			color: c.$portGore
+			border-radius: 100%
+		&:checked + label
+			background: c.$mirage
+			color: c.$white
+	@media screen and (max-width: 580px)
+		flex-wrap: wrap
+		justify-content: center
+		padding: .4em 0 1.8em
+		legend
+			width: 100%
+			text-align: center
+		input + label
+				margin: 0 0.5rem

@@ -1,0 +1,50 @@
+@use 'src/assets/sass/_colors' as c
+.container
+	margin: 0 auto
+	display: grid
+	background: c.$mirage
+	border: 7px solid c.$mirage
+	grid-template-columns: repeat(3, 1fr)
+	width: min-content
+	max-width: 90%
+	position: relative
+	border-radius: 3em
+	button
+		background: transparent
+		border: none
+		outline: none
+		font-family: inherit
+		font-weight: bold
+		padding: 1.5em 1.9em
+		cursor: pointer
+		width: max-content
+		position: relative
+		z-index: 2
+		color: c.$mirage
+		&:not(.active)
+			color: c.$blue
+			opacity: 40%
+			&:hover
+				color: c.$white
+				opacity: 100%
+
+	.shadow
+		position: absolute
+		width: 33%
+		height: 100%
+		box-sizing: content-box
+		top: 0
+		left: 0%
+		z-index: 1
+		border-radius: 3em
+		transition-duration: 0.3s
+	@media screen and (max-width: 400px)
+		button
+			padding: 1.5em 1em
+	@media screen and (max-width: 315px)
+		width: 90%
+		button
+			justify-self: center
+			padding: 1.5em 0em
+			width: min-content
+

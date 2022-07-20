@@ -1,0 +1,40 @@
+@use 'src/assets/sass/_colors' as c
+@use 'src/assets/sass/_mixins' as m
+
+.container
+	@include m.flexJA(center, center)
+	width: 100%
+	min-height: 100vh
+	position: fixed
+	top: 0
+	background: #0A0C1C80
+	z-index: 4
+	form
+		width: min-content
+		background: c.$white
+		padding: 0 2.8em
+		border-radius: 25px
+		position: relative
+		hr
+			position: absolute
+			width: 100%
+			left: 0
+			border: none
+			height: 1px
+			background: #E3E1E1
+		.button
+			position: absolute
+			bottom: -1.5em
+			left: calc(50% - 5em)
+	@media screen and (max-width: 580px)
+		form
+			width: calc(95% - 5.6em)
+			h4
+				font-size: 11px
+				letter-spacing: 4.23px
+			h2
+				font-size: 20px
+				margin: .8em 0
+		@media screen and (max-height: 610px)
+			position: absolute
+			height: 670px

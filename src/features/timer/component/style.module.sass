@@ -1,0 +1,17 @@
+@use 'src/assets/sass/_mixins' as m
+@use 'src/assets/sass/_colors' as c
+$gradient: linear-gradient(-45deg, #2e325a,#0E112A)
+.container
+	@include m.flexJA(center, center)
+	@include m.widthHeight(29em, 29em)
+	margin: 2.7em auto
+	background: $gradient
+	border-radius: 100%
+	box-shadow: -50px -50px 100px 0px #272C5A, 50px 50px 100px 0 #121530
+	user-select: none
+	cursor: pointer
+	transition-duration: 0.4s
+	&:hover
+		box-shadow: -50px -50px 100px 0px #2f3566, 50px 50px 100px 0 #0b0d22
+	@media screen and (max-width: 580px)
+		@include m.widthHeight(300px, 300px)

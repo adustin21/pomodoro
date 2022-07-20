@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&family=Roboto+Slab:wght@700&family=Space+Mono:wght@700&display=swap')
+@mixin fontParam($weight, $size, $line, $char: normal, $register: none)
+  font-weight: $weight
+  font-size: $size
+  line-height: $line
+  letter-spacing: $char
+  text-transform: $register
+body
+  @include fontParam(bold, 14px, 18px)
+  margin: 0
+.min
+  @include fontParam(bold, 12px, 14px)
+h1
+  @include fontParam(bold, 100px, 120px, -5px)
+h2
+  @include fontParam(bold, 28px, 34px)
+h3
+  @include fontParam(bold, 16px, 19px, 15px, uppercas)
+h4
+  @include fontParam(bold, 16px, 16px, 5px, uppercase)
+
+
+

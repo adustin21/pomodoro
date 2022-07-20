@@ -1,0 +1,31 @@
+@use 'src/assets/sass/_colors' as c
+@use 'src/assets/sass/_mixins' as m
+.container
+	@include m.flexJA(space-between, unset)
+	border: none
+	outline: none
+	color: c.$mirage
+	padding: 0
+	padding-bottom: 1.9em
+	border-bottom: solid 1px #E3E1E1
+	margin: 0
+	legend
+		width: 100%
+		h4
+			margin-bottom: 1.1em
+	.input
+		margin-right: 1.5em
+		&:last-child
+			margin-right: 0
+	@media screen and (max-width: 580px)
+		flex-wrap: wrap
+		padding-bottom: 1em
+		legend
+			text-align: center
+			margin-top: 1em
+		.input
+			display: flex
+			margin: 0
+			width: 100%
+			justify-content: space-between
+			align-items: center

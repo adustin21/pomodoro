@@ -1,0 +1,34 @@
+@use 'src/assets/sass/_mixins' as m
+@use 'src/assets/sass/_colors' as c
+.container
+	@include m.flexJA(space-between, center)
+	border: none
+	outline: none
+	padding: 1em 0 4.4em
+	margin: 0
+	legend
+		float: left
+		width: calc(100% - 120px - 3.5em)
+	input
+		display: none
+		& + label
+			@include m.widthHeight(40px, 40px)
+			@include m.flexJA(center, center)
+			border-radius: 100%
+			cursor: pointer
+		&:checked + label
+			background-image: url('./images/ok.svg')
+			background-repeat: no-repeat
+			background-position: center
+
+	@media screen and (max-width: 580px)
+		flex-wrap: wrap
+		justify-content: center
+		padding: 0em 0 3.8em
+		legend
+			width: 100%
+			text-align: center
+			h4
+				margin: 0 0 1.9em
+		input + label
+				margin: 0.5rem
