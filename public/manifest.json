@@ -1,6 +1,7 @@
 {
-  "short_name": "Pomodoro App",
-  "name": "Pomodoro timer",
+  "short_name": "Pomodoro",
+  "name": "Pomodoro Timer",
+  "description": "The Pomodoro Technique is a time management method designed to increase concentration, increase focus, improve productivity, and minimize distractions.",
   "icons": [
     {
       "src": "favicon.ico",
