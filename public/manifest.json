@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Pomodoro App",
+  "name": "Pomodoro timer",
   "icons": [
     {
       "src": "favicon.ico",
@@ -19,7 +19,9 @@
     }
   ],
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "lang": "en",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "theme_color": "#D7E0FF",
+  "background_color": "#1E213F"
 }
