@@ -3,7 +3,10 @@ import { Howl } from "howler";
 // tick.loop = true
 const tick = new Howl({
 	src: ['/assets/kit-tic.mp3'],
-	loop: true
+	loop: true,
+	sprite: {
+		correct: [0, 61000]
+	}
 }
 )
 
@@ -11,5 +14,5 @@ const tick = new Howl({
 
 export const playTick = (play: boolean)=>{
 	if(!play) tick.pause()
-	if(play) tick.play()
+	if(play) tick.play('correct')
 }
