@@ -2,7 +2,7 @@ import { Howl } from "howler";
 // const tick = new Audio('/assets/tic.wav')
 // tick.loop = true
 const tick = new Howl({
-	src: ['/assets/tic.mp3'],
+	src: ['/assets/kit-tic.mp3'],
 	loop: true
 }
 )
