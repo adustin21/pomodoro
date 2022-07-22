@@ -1,5 +1,4 @@
 import { I_LocalInitialState } from "uselocalstate"
-import { COLORS } from "../../assets/constants/colors"
 
 export enum E_Font {
 	font1 = "font1",
@@ -13,12 +12,14 @@ export enum E_ColorScheme {
 	colorScheme3 = "colorScheme3"
 }
 
+export interface I_SettingsTiming {
+	pomodoro: number
+	long: number
+	short: number
+}
+
 export interface I_SettingsState extends I_LocalInitialState{
-	timing: {
-		pomodoro: number
-		long: number
-		short: number
-	}
+	timing: I_SettingsTiming
 	font: E_Font
 	color: E_ColorScheme
 }

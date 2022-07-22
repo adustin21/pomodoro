@@ -1,5 +1,5 @@
 import React, { PropsWithChildren, useId } from 'react'
-import { E_ColorScheme, E_Font } from '../../../initial'
+import { E_ColorScheme } from '../../../initial'
 import styles from './style.module.sass'
 
 interface I_Props extends PropsWithChildren{

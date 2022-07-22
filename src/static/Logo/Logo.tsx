@@ -1,9 +1,8 @@
-import React, { PropsWithChildren } from 'react'
+import React from 'react'
 import styles from './style.module.sass'
 
-interface I_Props extends PropsWithChildren{}
 
-function Logo({}: I_Props) {
+function Logo() {
 	return (
 		<div className={styles.container}>
 			<h1>pomodoro</h1>

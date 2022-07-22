@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, PropsWithChildren, useState } from 'react'
+import React, { PropsWithChildren, } from 'react'
 import { I_SettingsState } from "../../initial";
 import styles from './style.module.sass'
 import Time from './Time/Time';

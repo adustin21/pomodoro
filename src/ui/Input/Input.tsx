@@ -1,4 +1,4 @@
-import React, { ChangeEvent, MouseEventHandler, PropsWithChildren } from 'react'
+import React from 'react'
 import styles from './style.module.sass'
 
 interface I_Props{
@@ -17,7 +17,7 @@ function Input({value, className, name, setValue}: I_Props) {
 	}
 	const inputHandler = (e:  any) => {
 		const numInput = Number(e.target.value)
-		if(numInput===NaN) return;
+		if(isNaN(numInput)) return;
 		if(numInput>60) return;
 		if(numInput<0) return;
 		setValue(numInput)

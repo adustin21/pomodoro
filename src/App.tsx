@@ -8,8 +8,6 @@ import settingState, { I_SettingsState } from './features/settings/initial';
 import Timer from './features/timer/component/Timer';
 import timerState, { I_TimerState } from './features/timer/initial';
 import Logo from './static/Logo/Logo';
-import Button from './ui/Button/Button';
-import Input from './ui/Input/Input';
 
 function App() {
   const [settings, setSettings] = useLocalState<I_SettingsState>(settingState)

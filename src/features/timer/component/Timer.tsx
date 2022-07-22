@@ -1,18 +1,18 @@
 import React, { PropsWithChildren, useEffect, useState } from 'react'
 import 'react-circular-progressbar/dist/styles.css';
-import { E_Mode, I_ModeState } from '../../mode/initial';
+import { I_ModeState } from '../../mode/initial';
 import { I_TimerState } from '../initial';
-import { E_ColorScheme } from '../../settings/initial';
+import { E_ColorScheme, I_SettingsTiming } from '../../settings/initial';
 import styles from './style.module.sass'
 import ProgressWrapper from './ProgressWrapper/ProgressWrapper';
+import { playTick } from '../../../utils/playTic';
+import { resetTimer } from '../../../utils/resetTimer';
+import { calculateInitialTimeStamp } from '../../../utils/calculateInitialTimeStamp';
+import { timerOnStop } from '../../../utils/timerOnStop';
 
 interface I_Props extends PropsWithChildren{
 	mode: I_ModeState,
-	timing: {
-		pomodoro: number
-		long:  number
-		short: number
-	}
+	timing:	I_SettingsTiming
 	timer: I_TimerState
 	color: E_ColorScheme
 	setMode:
@@ -21,57 +21,46 @@ interface I_Props extends PropsWithChildren{
 	React.Dispatch<React.SetStateAction<I_TimerState>>
 }
 
-function Timer({timer, setTimer, timing, mode, setMode,color}: I_Props) {
-	const timeStamp = timing[mode.now] * 60000 + 100
-	const [time, setTime] = useState(new Date(timeStamp))
-	const onStop = () => {
-		const alarm = new Audio('/assets/alarm.mp3')
-		alarm.play()
-		if  (mode.now === E_Mode.pomodoro){
-			if (mode.round >= 3)
-				setMode({...mode, now: E_Mode.long, round: 0})
-			else
-				setMode({...mode, now: E_Mode.short, round: mode.round + 1})
-		}else{
-			setMode({...mode, now: E_Mode.pomodoro})
-		}
-	}
+function Timer({timer, setTimer, timing, mode, setMode, color}: I_Props) {
+	const [time, setTime] =
+	useState(new Date(calculateInitialTimeStamp(timing, mode.now)))
 	const clickHandler = () => {
 		setTimer({
 			...timer,
 			startStamp: timer.run?null:Date.now(),
 			run: !timer.run
 		})
-		setTime(new Date(timeStamp))
+		setTime(new Date(calculateInitialTimeStamp(timing, mode.now)))
 	}
 	useEffect(()=>{
+		const intialTimeStamp = calculateInitialTimeStamp(timing, mode.now)
 		if(timer.run){
-		const tick = new Audio('/assets/tick.mp3')
 		const interval = setInterval(()=>{
 			if (timer.startStamp) {
 				const nowStamp = Date.now() - timer.startStamp
-				if ( timeStamp - nowStamp < 1000)
-					onStop()
-				setTime(new Date(timeStamp - nowStamp))
-				tick.play()
+				if (intialTimeStamp - nowStamp < 1000)
+					timerOnStop(mode, setMode)
+				setTime(new Date(intialTimeStamp - nowStamp))
 			}
 		}, 500)
 		return(()=>{
 			clearInterval(interval)
 		})
 	}
+	}, [mode, setMode, timer.run, timer.startStamp, timing])
+	useEffect(()=>{
+		playTick(timer.run)
 	}, [timer.run])
 	useEffect(()=>{
-		setTimer({...timer, startStamp: null, run: false})
-		setTime(new Date(timeStamp))
-	},[mode])
+		resetTimer(timing, mode.now, setTimer, setTime)
+	}, [mode.now, setTime, setTimer, timing])
 	return (
 		<div
 		onClick={clickHandler}
 		className={`${styles.container} ${color}`}>
 			<ProgressWrapper
 			color={color} isRun={timer.run}
-			time={time} timeStamp={timeStamp}/>
+			time={time} timeStamp={calculateInitialTimeStamp(timing, mode.now)}/>
 		</div>
 	)
 }
