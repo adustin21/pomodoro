@@ -1,4 +1,4 @@
-const tick = new Audio('/assets/tic.mp3')
+const tick = new Audio('/assets/tic.wav')
 tick.loop = true
 
 export const playTick = (play: boolean)=>{
